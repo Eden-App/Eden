@@ -1,5 +1,5 @@
-require('dotenv').config()
 
+require('dotenv').config()
 const express = require('express'),
       cors = require('cors'),
       mongoose = require('mongoose'),
@@ -16,17 +16,21 @@ db
         console.log('database connected')
     });
 
-const mangaRouter = require('./routes/mangaeden')
-      newsRouter = require('./routes/news')
+
+const mangaRouter = require('./routes/mangaeden'),
+      newsRouter = require('./routes/news'),
+      userRoute = require('./routes/user')
+
 
 app
     .use(express.urlencoded({ extended:false }))
     .use(express.json())
     .use(cors())
 
-
     .use('/news', newsRouter)
     .use('/mangas', mangaRouter)
+    .use('/users', userRoute)
+
 
 
     .listen(port, () => {
