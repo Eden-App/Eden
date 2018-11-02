@@ -1,4 +1,3 @@
-
 require('dotenv').config()
 const express = require('express'),
       cors = require('cors'),
@@ -7,6 +6,7 @@ const express = require('express'),
 
       port = process.env.PORT || 3000,
       app = express()
+
 
 mongoose.connect('mongodb://localhost:27017/eden-app')
 db
@@ -20,6 +20,9 @@ const mangaRouter = require('./routes/mangaeden'),
       userRoute = require('./routes/user')
 
 
+const userRoute = require('./routes/user')
+ 
+
 app
     .use(express.urlencoded({ extended:false }))
     .use(express.json())
@@ -28,7 +31,6 @@ app
     .use('/news', newsRouter)
     .use('/mangas', mangaRouter)
     .use('/users', userRoute)
-
 
 
     .listen(port, () => {
