@@ -15,7 +15,6 @@ db
         console.log('database connected')
     });
 
-
 const mangaRouter = require('./routes/mangaeden'),
       newsRouter = require('./routes/news'),
       userRoute = require('./routes/user')
