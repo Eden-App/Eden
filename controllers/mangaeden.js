@@ -5,7 +5,7 @@ class Controller {
     static listManga(req, res) {
         axios({
             method: 'GET',
-            url: `https://www.mangaeden.com/api/list/0/?p=${req.params.page_id}&l=25`
+            url: `https://www.mangaeden.com/api/list/0/?p=${req.params.page_id}&l=60`
         })
         .then(response => {
             let mangas = response.data
@@ -29,10 +29,12 @@ class Controller {
             url: `https://www.mangaeden.com/api/list/0`
         })
         .then(response => {
-            let mangas = response.data
+            let mangas = response.data.manga
             let searchedManga = []
+
+            let input = req.params.input.split(',').join(' ')
             for (let i = 0; i < mangas.length; i++) {
-                if(mangas[i].t.toLowerCase().indexOf(req.params.input) !== -1) {
+                if(mangas[i].t.toLowerCase().indexOf(input) !== -1) {
                     searchedManga.push(mangas[i])
                 }
             }
