@@ -1,11 +1,12 @@
 const express = require('express'),
   routes = express.Router(),
-  NewsController = require('../controllers/news');
+  NewsController = require('../controllers/news'),
+  { isLogin } = require('../middlewares/auth.js')
 
-routes.post('/article', NewsController.article)
-routes.post('/bestseller', NewsController.bestSeller)
-routes.post('/topstories', NewsController.topStories)
-routes.post('/mostviewed', NewsController.mostViewed)
+routes.post('/article', isLogin, NewsController.article)
+routes.post('/bestseller', isLogin, NewsController.bestSeller)
+routes.post('/topstories', isLogin, NewsController.topStories)
+routes.post('/mostviewed', isLogin, NewsController.mostViewed)
 
 /*
 

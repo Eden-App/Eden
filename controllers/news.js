@@ -6,6 +6,7 @@ class NewsController {
 
   // ! SHOWING ARTICLES
   static article(req, res) {
+    console.log(`masuk article`)
     let inp = queryString.stringify(req.body)
     let url = 'http://api.nytimes.com/svc/search/v2/articlesearch.json?' + inp + `&api-key=${process.env.N_KEY}`
 
