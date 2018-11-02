@@ -8,7 +8,6 @@ const express = require('express'),
       port = process.env.PORT || 3000,
       app = express()
 
-
 mongoose.connect('mongodb://localhost:27017/eden-app')
 db
     .on('error', console.error.bind(console, 'database connection error:'))
