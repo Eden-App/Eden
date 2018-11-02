@@ -20,9 +20,6 @@ const mangaRouter = require('./routes/mangaeden'),
       userRoute = require('./routes/user')
 
 
-const userRoute = require('./routes/user')
- 
-
 app
     .use(express.urlencoded({ extended:false }))
     .use(express.json())
